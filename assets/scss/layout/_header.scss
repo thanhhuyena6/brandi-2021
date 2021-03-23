@@ -1,0 +1,142 @@
+.header {
+  width: 100%;
+  position: relative;
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    padding: 30px 15px 20px 15px;
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      @include  flex;
+      justify-content: space-between;
+      align-items: center;
+      &__img {
+        max-width: 100%;
+        display: block;
+        margin-right: 35px;
+      }
+      p {
+        font-size: 13px;
+        border-left: 2px solid $color-border;
+        padding-left: 20px;
+        color: $color-default-lightest;
+        opacity: 0.3;
+      }
+    }
+    .nav {
+      a {
+        padding: 0 15px;
+        font-size: 13px;
+        color: $color-default-lightest;
+        position: relative;
+        z-index: 2;
+        &:before{
+          content: "";
+          position: absolute;
+          top: -32px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 43px;
+          height: 1px;
+          background: $color-border;
+          display: none;
+        }
+        &:hover:before{
+          display: block;
+        }
+        &:last-child{
+          padding-right: 0;
+        }
+      }
+    }
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+    .burger {
+      display: none;
+    }
+  }
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.2;
+    background: $color-background;
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px,-6px);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+}
+
+
+@media screen and (max-width: 768px){
+  .header__container{
+    .nav {
+      position: absolute;
+      left: 0;
+      height: 92vh;
+      top: 79px;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in;
+      z-index: 2;
+    }
+    .burger {
+      display: block;
+      cursor: pointer;
+    }
+    .nav-active{
+      transform: translateX(0%);
+      background: $color-success;
+      width: 100%;
+      max-width: 350px;
+      & a {
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px){
+  .header__container{
+    .nav-active {
+      max-width: unset;
+    }
+  }
+}
+
+
