@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -36,77 +37,129 @@
 </p>
 <![endif]-->
 
-<div class="header">
-    <div class="header__container">
-        <div class="logo">
-            <img src="./assets/img/logo.svg" alt="logo" class="logo__img">
-            <p>I’am your tag line</p>
-        </div>
-        <div class="nav">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Works</a>
-            <a href="#">Team</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+<div class="banner">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="#">
+                        <img src="./assets/img/logo.svg" alt="logo" class="logo__img">
+                    </a>
+                </h1>
+                <p>I’am your tag line</p>
+            </div>
+            <div class="nav">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Works</a>
+                <a href="#">Team</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
     </div>
-<!--    <img src="assets/img/header-1.png" alt="layer" class="header__img">-->
+    <div class="banner__wrapper">
+        <div class="banner__slider">
+            <div class="banner__slider__item"></div>
+            <div class="banner__slider__item"></div>
+            <div class="banner__slider__item"></div>
+        </div>
+        <div class="slider__content">
+            <h2>Meet <b>Brandi!</b></h2>
+            <h3><span>/creative</span> one page template.</h3>
+            <p>We are a team of professionals</p>
+            <div class="content__icon">
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li><i class="fab fa-google-plus-g active"></i></li>
+                <li><i class="fab fa-dribbble"></i></li>
+            </div>
+        </div>
+        <div class="banner__button">
+            <span class="dot dot-banner" onclick="currentSlide(1)"></span>
+            <span class="dot dot-banner" onclick="currentSlide(2)"></span>
+            <span class="dot dot-banner" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
 </div>
-<div class="banner slideshow-container">
-    <div class="banner__slider">
-        <img src="./assets/img/banner.png" alt="background">
-        <div class="slider__content">
-            <h1>Meet <b>Brandi!</b></h1>
-            <h2><span>/creative</span> one page template.</h2>
-            <p>We are a team of professionals</p>
-            <div class="content__icon">
-                <li><i class="fab fa-twitter"></i></li>
-                <li><i class="fab fa-facebook-f"></i></li>
-                <li><i class="fab fa-google-plus-g active"></i></li>
-                <li><i class="fab fa-dribbble"></i></li>
+<div class="features">
+    <div class="container">
+        <h2>FEATURES</h2>
+        <div class="features__icon line">
+            <img src="./assets/img/heart-empty.png" alt="icon">
+        </div>
+        <div class="features__content">
+            <div class="features__item">
+                <img src="./assets/img/icon-1.png" alt="icon">
+                <div class="features__text">
+                    <h3>Branding</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-2.png" alt="icon">
+                <div class="features__text">
+                    <h3>Development</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-3.png" alt="icon">
+                <div class="features__text">
+                    <h3>Consulting</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="banner__slider">
-        <img src="./assets/img/banner-1.png" alt="background">
-        <div class="slider__content">
-            <h1>Meet <b>Brandi!</b></h1>
-            <h2><span>/creative</span> one page template.</h2>
-            <p>We are a team of professionals</p>
-            <div class="content__icon">
-                <li><i class="fab fa-twitter"></i></li>
-                <li><i class="fab fa-facebook-f"></i></li>
-                <li><i class="fab fa-google-plus-g active"></i></li>
-                <li><i class="fab fa-dribbble"></i></li>
-            </div>
-        </div>
-    </div>
-    <div class="banner__slider">
-        <img src="./assets/img/banner.png" alt="background">
-        <div class="slider__content">
-            <h1>Meet <b>Brandi!</b></h1>
-            <h2><span>/creative</span> one page template.</h2>
-            <p>We are a team of professionals</p>
-            <div class="content__icon">
-                <li><i class="fab fa-twitter"></i></li>
-                <li><i class="fab fa-facebook-f"></i></li>
-                <li><i class="fab fa-google-plus-g active"></i></li>
-                <li><i class="fab fa-dribbble"></i></li>
-            </div>
-        </div>
-    </div>
-    <div class="banner__button">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+    <div class="features__button">
+        <span class="dot dot-feature active" onclick="currentFeature(1)"></span>
+        <span class="dot dot-feature" onclick="currentFeature(2)"></span>
+        <span class="dot dot-feature" onclick="currentFeature(3)"></span>
     </div>
 </div>
 
+<div class="works">
+    <div class="container">
+        <div class="works__content">
+            <h2>WORKS</h2>
+            <div class="works__icon line">
+                <img src="./assets/img/heart-empty.png" alt="icon">
+            </div>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore</p>
+        </div>
+        <div class="works__items">
+            <ul>
+                <li >
+                    <a href="#" class="active">All</a>
+                </li>
+                <li>
+                    <a href="#">Branding</a>
+                </li>
+                <li>
+                    <a href="#">Web</a>
+                </li>
+                <li>
+                    <a href="#">Logo Design</a>
+                </li>
+                <li>
+                    <a href="#">Photography</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 <script src="./assets/js/vendor/jquery-2.2.4.min.js"></script>
