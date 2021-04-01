@@ -23,10 +23,12 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.css"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/main.css"/>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -39,7 +41,7 @@
 
 <div class="banner">
     <div class="header">
-        <div class="container">
+        <div class="mycontainer">
             <div class="logo">
                 <h1>
                     <a href="#">
@@ -64,9 +66,15 @@
     </div>
     <div class="banner__wrapper">
         <div class="banner__slider">
-            <div class="banner__slider__item"></div>
-            <div class="banner__slider__item"></div>
-            <div class="banner__slider__item"></div>
+            <div class="banner__slider__item">
+                <img src="./assets/img/banner.png" alt="image">
+            </div>
+            <div class="banner__slider__item">
+                <img src="./assets/img/banner-1.png" alt="image">
+            </div>
+            <div class="banner__slider__item">
+                <img src="./assets/img/banner.png" alt="image">
+            </div>
         </div>
         <div class="slider__content">
             <h2>Meet <b>Brandi!</b></h2>
@@ -79,15 +87,10 @@
                 <li><i class="fab fa-dribbble"></i></li>
             </div>
         </div>
-        <div class="banner__button">
-            <span class="dot dot-banner" onclick="currentSlide(1)"></span>
-            <span class="dot dot-banner" onclick="currentSlide(2)"></span>
-            <span class="dot dot-banner" onclick="currentSlide(3)"></span>
-        </div>
     </div>
 </div>
 <div class="features">
-    <div class="container">
+    <div class="mycontainer">
         <h2>FEATURES</h2>
         <div class="features__icon line">
             <img src="./assets/img/heart-empty.png" alt="icon">
@@ -120,16 +123,65 @@
                         totam rem aperiam, eaque ipsa quae ab illo inventore</p>
                 </div>
             </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-2.png" alt="icon">
+                <div class="features__text">
+                    <h3>Development</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-1.png" alt="icon">
+                <div class="features__text">
+                    <h3>Branding</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-3.png" alt="icon">
+                <div class="features__text">
+                    <h3>Consulting</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-2.png" alt="icon">
+                <div class="features__text">
+                    <h3>Development</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-3.png" alt="icon">
+                <div class="features__text">
+                    <h3>Consulting</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            <div class="features__item">
+                <img src="./assets/img/icon-1.png" alt="icon">
+                <div class="features__text">
+                    <h3>Branding</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium,
+                        totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="features__button">
-        <span class="dot dot-feature active" onclick="currentFeature(1)"></span>
-        <span class="dot dot-feature" onclick="currentFeature(2)"></span>
-        <span class="dot dot-feature" onclick="currentFeature(3)"></span>
     </div>
 </div>
 <div class="works">
-    <div class="container">
+    <div class="mycontainer">
         <div class="works__content">
             <h2>WORKS</h2>
             <div class="works__icon line">
@@ -161,10 +213,11 @@
     </div>
     <div class="works__list">
         <div class="works__image">
-            <img class="image" src="./assets/img/work-1.png" alt="image">
+            <img class="image"  src="./assets/img/work-1.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(1)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -174,7 +227,8 @@
             <img class="image" src="./assets/img/work-2.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(2)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -184,7 +238,8 @@
             <img class="image" src="./assets/img/work-3.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(3)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -194,7 +249,8 @@
             <img class="image" src="./assets/img/work-4.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(4)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -204,7 +260,8 @@
             <img class="image" src="./assets/img/work-5.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(5)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -214,7 +271,8 @@
             <img class="image" src="./assets/img/work-6.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(6)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -224,7 +282,8 @@
             <img class="image" src="./assets/img/work-7.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(7)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
@@ -234,16 +293,25 @@
             <img class="image" src="./assets/img/work-8.png" alt="image">
             <div class="works__detail">
                 <div class="detail__flow">
-                    <img class="detail__image" src="./assets/img/icon-eye.png" alt="icon">
+                    <img onclick="wrapBox(8)" class="detail__image" data-toggle="modal" data-target="#exampleModalCenter"
+                         src="./assets/img/icon-eye.png" alt="icon">
                     <p>Labore et dolore magnam</p>
                     <p>Photography</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="btn btn-primary" aria-hidden="true">Close</span>
+            </button>
+            <div class="bg--img"></div>
+        </div>
+    </div>
 </div>
 <div class="team">
-    <div class="container">
+    <div class="mycontainer">
         <div class="team__content">
             <h2>MEET OUR TEAM</h2>
             <div class="team__icon line">
@@ -330,16 +398,163 @@
                     <p>Sr. UI Designer</p>
                 </div>
             </div>
-        </div>
-        <div class="team__button">
-            <span class="dot dot-feature active" onclick="currentFeature(1)"></span>
-            <span class="dot dot-feature" onclick="currentFeature(2)"></span>
-            <span class="dot dot-feature" onclick="currentFeature(3)"></span>
+            <div class="team__image">
+                <img src="./assets/img/team-1.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">John Filmr Doe</a></h3>
+                    <p>Managing Director</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-2.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Chystine Hineu</a></h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-3.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Martin Matrone</a></h3>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-4.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Steve Flaulkin</a></h3>
+                    <p>Sr. UI Designer</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-1.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">John Filmr Doe</a></h3>
+                    <p>Managing Director</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-2.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Chystine Hineu</a></h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-3.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Martin Matrone</a></h3>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+            <div class="team__image">
+                <img src="./assets/img/team-4.png" alt="image">
+                <div class="team__detail">
+                    <div class="team__description">
+                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
+                        <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem.</p>
+                    </div>
+                    <div class="team__icon">
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-google-plus-g active"></i></li>
+                    </div>
+                </div>
+                <div class="team__name">
+                    <h3><a href="#">Steve Flaulkin</a></h3>
+                    <p>Sr. UI Designer</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="product">
-    <div class="container">
+    <div class="mycontainer">
         <div class="product__content">
             <h2>SOME FUN FACTS</h2>
             <div class="product__icon line">
@@ -351,35 +566,35 @@
                 <div class="product__image">
                     <img src="./assets/img/product-1.png" alt="image">
                 </div>
-                <h3>3200</h3>
+                <h3 class="counter" data-count="3200">0</h3>
                 <p>HOURS OF WORK</p>
             </div>
             <div class="product__item">
                 <div class="product__image">
                     <img src="./assets/img/product-2.png" alt="image">
                 </div>
-                <h3>120</h3>
+                <h3 class="counter" data-count="120">0</h3>
                 <p>SATISFIED CLINETS</p>
             </div>
             <div class="product__item">
                 <div class="product__image">
                     <img src="./assets/img/product-3.png" alt="image">
                 </div>
-                <h3>360</h3>
+                <h3 class="counter" data-count="360">0</h3>
                 <p>PROJECTS DELIVERED</p>
             </div>
             <div class="product__item">
                 <div class="product__image">
                     <img src="./assets/img/product-4.png" alt="image">
                 </div>
-                <h3>42</h3>
+                <h3 class="counter" data-count="42">0</h3>
                 <p>AWARDS WON</p>
             </div>
         </div>
     </div>
 </div>
 <div class="discuss">
-    <div class="container">
+    <div class="mycontainer">
         <div class="discuss__content">
             <h2>LET'S DISCUSS</h2>
             <div class="discuss__icon line">
@@ -433,7 +648,7 @@
     </iframe>
 </div>
 <div class="footer">
-    <div class="container">
+    <div class="mycontainer">
         <div class="footer__list">
             <div class="footer__item">
                 <div class="footer__logo">
@@ -480,6 +695,7 @@
 
 <script src="./assets/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="./assets/js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="./assets/js/main.js"></script>
 </body>
 </html>
