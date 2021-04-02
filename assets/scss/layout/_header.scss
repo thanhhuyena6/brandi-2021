@@ -86,10 +86,18 @@
     position: relative;
     .banner__slider{
       &__item{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
         height: 800px;
-        img{
-          height: 100%;
-          display: block;
+        &:nth-child(2){
+          background-image: url("../img/banner.png");
+        }
+        &:nth-child(3){
+          background-image: url("../img/banner-1.png");
+        }
+        &:nth-child(4){
+          background-image: url("../img/banner.png");
         }
       }
       .slick-dots{
@@ -100,7 +108,7 @@
         transform: translateY(-50%);
         li{
           margin: 7px 0;
-          &.slick-active{
+          &.slick-active,&:hover{
             background-color: $color-default-lightest;
           }
         }

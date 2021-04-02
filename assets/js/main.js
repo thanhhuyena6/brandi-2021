@@ -20,6 +20,30 @@ const navSlide = () => {
 
 navSlide();
 
+var slideIndex = 1;
+showSlides(slideIndex);
+
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("works__list");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "flex";
+    dots[slideIndex-1].className += " active";
+}
+
 function wrapBox(indexImg) {
     var wrap = document.getElementsByClassName('close')[0];
     var bgImg =     document.getElementsByClassName('bg--img')[0];
@@ -66,32 +90,11 @@ $(document).ready(function(){
         else {
             header.removeClass('sticky');
         }
-        $('.counter').each(function() {
-            var $this = $(this), countTo = $this.attr('data-count');
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
+    });
 
-            if( bottom_of_window > bottom_of_object ){
-
-                $({ countNum: $this.text()}).animate({
-                        countNum: countTo
-                    },
-
-                    {
-
-                        duration: 5000,
-                        easing:'linear',
-                        step: function() {
-                            $this.text(Math.floor(this.countNum));
-                        },
-                        complete: function() {
-                            $this.text(this.countNum);
-                            //alert('finished');
-                        }
-
-                    });
-            }
-        });
+    $('.counter').counterUp({
+        delay: 10,
+        time: 2000
     });
 
     $('.banner__slider').slick({

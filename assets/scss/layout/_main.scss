@@ -47,12 +47,17 @@
           padding-right: 0;
         }
       }
+      .slick-dots {
+        li:hover{
+          background: $color-danger;
+        }
+      }
     }
   }
 
 }
 .modal-open,.modal{
-  padding-right: 0!important;
+  padding-right: 16px!important;
 }
 .works {
   position: relative;
@@ -143,6 +148,7 @@
         li {
           margin: 0 5px;
           a{
+            cursor: pointer;
             display: inline-block;
             border-radius: 6px;
             padding: 5px 20px;
@@ -316,6 +322,9 @@
                 transform: translate(-50%, -50%);
                 font-size: 20px;
                 color: $color-default-lightest;
+                &:hover{
+                  opacity: 0.8;
+                }
               }
             }
           }
@@ -348,6 +357,11 @@
             color: $color-default-darker;
             font-size: 13px;
           }
+        }
+      }
+      .slick-dots {
+        li:hover{
+          background: $color-danger;
         }
       }
     }
@@ -547,6 +561,10 @@
             font-weight: 400;
             padding-left: 10px;
             cursor: pointer;
+            transition: all .3s ease;
+            &:hover{
+              color: $color-success;
+            }
           }
           &:focus{
             outline: none;

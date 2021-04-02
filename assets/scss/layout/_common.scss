@@ -33,8 +33,6 @@ img {
   }
 }
 
-
-
 .line {
   position: relative;
   z-index: 2;
@@ -64,7 +62,6 @@ img {
   transform: translateX(50%);
   .slick-active, .slick-active button{
     background: $color-danger;
-    color: $color-danger;
   }
   margin: 0;
   list-style-type: none;

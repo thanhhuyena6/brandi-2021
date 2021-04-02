@@ -68,6 +68,10 @@
                 a{
                   font-size: 13px;
                   color: $color-default-lightest;
+                  &:hover, &:focus{
+                    color: $color-danger;
+                    text-decoration: none;
+                  }
                 }
               }
             }
@@ -90,6 +94,16 @@
             &:first-child{
               padding-top: 52px;
               margin-bottom: 50px;
+              position: relative;
+              &:before{
+                content: "";
+                position: absolute;
+                bottom:4px ;
+                left: 0;
+                width: 1px;
+                height: 39px;
+                background: $color-border-left;
+              }
             }
           }
         }
@@ -122,6 +136,9 @@
             padding-left: 25px;
             &:first-child{
               margin-bottom: 30px;
+              &:before{
+                bottom: 15px;
+              }
             }
           }
         }
@@ -164,6 +181,10 @@
               padding-left: 0;
               &:first-child{
                 margin-bottom: 30px;
+                &:before{
+                  left: -12px;
+                  bottom: 4px;
+                }
               }
             }
           }
