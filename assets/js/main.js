@@ -136,9 +136,10 @@ $(document).ready(function(){
         slidesToScroll: 4,
         arrows: false,
         variableWidth: true,
+
         responsive: [
             {
-                breakpoint: 1025,
+                breakpoint: 1201,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,

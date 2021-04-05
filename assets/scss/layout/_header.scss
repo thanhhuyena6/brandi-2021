@@ -1,12 +1,14 @@
-.banner{
+.banner {
   width: 100%;
   position: relative;
+
   .header {
     width: 100%;
     max-height: 70px;
     position: fixed;
     z-index: 3;
     transition: all 0.3s ease-in-out;
+
     .mycontainer {
       position: relative;
       z-index: 3;
@@ -14,15 +16,18 @@
       @include flex;
       justify-content: space-between;
       align-items: center;
+
       .logo {
-        @include  flex;
+        @include flex;
         justify-content: space-between;
         align-items: center;
+
         .logo__img {
           max-width: 100%;
           display: block;
           margin-right: 25px;
         }
+
         p {
           font-size: 13px;
           border-left: 2px solid $color-border;
@@ -31,7 +36,21 @@
           opacity: 0.3;
         }
       }
+
       .nav {
+        @media #{$info-phone}{
+          position: absolute;
+          left: 0;
+          height: 92vh;
+          top: 70px;
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease-in;
+          z-index: 2;
+        }
+
         a {
           padding: 0 15px;
           font-size: 13px;
@@ -39,7 +58,8 @@
           position: relative;
           z-index: 2;
           transition: all .3s ease;
-          &:before{
+
+          &:before {
             content: "";
             position: absolute;
             top: -32px;
@@ -50,14 +70,23 @@
             background: $color-border;
             display: none;
           }
-          &:hover:before{
+
+          &:hover:before {
             display: block;
           }
-          &:last-child{
+
+          &:last-child {
             padding-right: 0;
+          }
+
+          @media #{$info-phone}{
+            &:hover:before {
+              display: none;
+            }
           }
         }
       }
+
       .burger div {
         width: 25px;
         height: 3px;
@@ -65,8 +94,32 @@
         margin: 5px 0;
         transition: all 0.3s ease;
       }
+
       .burger {
         display: none;
+        @media #{$info-phone}{
+          display: block;
+          cursor: pointer;
+        }
+      }
+
+      @media #{$info-phone} {
+        padding: 20px 15px;
+        .nav-active {
+          transform: translateX(0%);
+          background: $color-success;
+          width: 100%;
+          max-width: 350px;
+
+          & a {
+            padding: 15px;
+          }
+        }
+      }
+      @media #{$info-phone-vertical} {
+        .nav-active {
+          max-width: unset;
+        }
       }
     }
 
@@ -82,40 +135,37 @@
       background: $color-background;
     }
   }
-  &__wrapper{
+
+  &__wrapper {
     position: relative;
-    .banner__slider{
-      &__item{
+
+    .banner__slider {
+      &__item {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         height: 800px;
-        &:nth-child(2){
-          background-image: url("../img/banner.png");
-        }
-        &:nth-child(3){
-          background-image: url("../img/banner-1.png");
-        }
-        &:nth-child(4){
-          background-image: url("../img/banner.png");
-        }
       }
-      .slick-dots{
+
+      .slick-dots {
         flex-direction: column;
         position: absolute;
         top: 50%;
         right: 46px;
         transform: translateY(-50%);
-        li{
+
+        li {
           margin: 7px 0;
-          &.slick-active,&:hover{
+
+          &.slick-active, &:hover {
             background-color: $color-default-lightest;
           }
         }
       }
     }
+
     .slider__content {
-      @include  flex;
+      @include flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -126,24 +176,35 @@
       color: $color-default-lightest;
       line-height: 1.2;
       width: 100%;
+
       h2 {
-        font-size: 62px;
+        @include font-size(62px);
         font-weight: 300;
+        @media #{$info-phone-vertical} {
+          font-size: 28px;
+          margin-bottom: 10px;
+        }
       }
 
       h3 {
-        font-size: 48px;
+        @include font-size(48px);
         font-weight: 300;
         margin-bottom: 20px;
+
         span {
           color: $green;
+        }
+
+        @media #{$info-phone-vertical}{
+          font-size: 18px;
         }
       }
 
       p {
         position: relative;
-        font-size: 18px;
+        @include font-size(18px);
         margin-bottom: 110px;
+
         &:before, &:after {
           content: "";
           background: $green;
@@ -161,27 +222,54 @@
         &:after {
           right: -60px;
         }
+
+        @media #{$info-phone} {
+          margin-bottom: 20px;
+        }
       }
-      .content__icon{
-        @include flex;
-        justify-content: space-between;
-        align-items: center;
-        li{
-          list-style: none;
-          color: $color-icon;
-          i {
-            padding: 0 8px;
-            &:before{
-              font-size: 20px;
-            }
-            &:hover{
-              cursor: pointer;
-              color: $color-default-lightest;
+
+      .content__icon {
+        ul {
+          @include flex;
+          justify-content: space-between;
+          align-items: center;
+
+          li {
+            list-style: none;
+            color: $color-icon;
+
+            i {
+              padding: 0 8px;
+
+              &:before {
+                font-size: 20px;
+              }
+
+              &:hover {
+                cursor: pointer;
+                color: $color-default-lightest;
+              }
             }
           }
+
+          .active {
+            color: $color-default-lightest;
+          }
         }
-        .active {
-          color: $color-default-lightest;
+      }
+    }
+
+    @media #{$info-phone} {
+      .banner__slider {
+        &__item {
+          height: 500px;
+        }
+      }
+    }
+    @media #{$info-phone-vertical}{
+      .banner__slider {
+        &__item {
+          height: 400px;
         }
       }
     }
@@ -189,115 +277,16 @@
 }
 
 .toggle .line1 {
-  transform: rotate(-45deg) translate(-5px,6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .toggle .line2 {
   opacity: 0;
 }
+
 .toggle .line3 {
-  transform: rotate(45deg) translate(-5px,-6px);
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-@media screen and (max-width: 1024px) {
-  .banner {
-    &__wrapper{
-      .slider__content {
-        h2 {
-          font-size: 40px;
-        }
-        h3 {
-          font-size: 32px;
-        }
-      }
-    }
-  }
-}
-
-
-@media screen and (max-width: 768px){
-  .banner{
-    .header{
-      .mycontainer{
-        padding: 20px 15px;
-        .nav {
-          position: absolute;
-          left: 0;
-          height: 92vh;
-          top: 79px;
-          display: flex;
-          flex-direction: column;
-          width: 50%;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease-in;
-          z-index: 2;
-          a:hover:before{
-            display: none;
-          }
-        }
-        .burger {
-          display: block;
-          cursor: pointer;
-        }
-        .nav-active{
-          transform: translateX(0%);
-          background: $color-success;
-          width: 100%;
-          max-width: 350px;
-          & a {
-            padding: 15px;
-          }
-        }
-      }
-    }
-    &__wrapper{
-      .banner__slider{
-        .banner__slider__item {
-          height: 400px;
-        }
-      }
-      .slider__content {
-        h2 {
-          font-size: 30px;
-          //margin-bottom: 0;
-        }
-        h3 {
-          font-size: 24px;
-          //margin-bottom: 10px;
-        }
-        p {
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 480px){
-  .banner{
-    .header{
-      .mycontainer{
-        .nav-active {
-          max-width: unset;
-        }
-      }
-    }
-    &__wrapper{
-      .banner__slider{
-
-      }
-      .slider__content {
-        h2 {
-          font-size: 28px;
-        }
-        h3 {
-          font-size: 18px;
-        }
-        p {
-          font-size: 16px;
-        }
-      }
-    }
-  }
-}
 
 
