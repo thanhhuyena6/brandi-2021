@@ -38,14 +38,22 @@
       }
 
       .features__item {
-        width: 33.33%;
+        width: calc(100% / 3);
         @include flex;
         align-items: flex-start;
         padding: 0 30px 0 15px;
-        @media #{$info-phone}{
-          width: 100%;
-          padding: 10px 0;
+
+        &:focus {
+          outline: none;
         }
+
+        @media #{$info-phone}{
+          padding: 10px;
+          &:first-child{
+            padding-left: 0;
+          }
+        }
+
         .features__text {
           margin-left: 15px;
 
@@ -73,10 +81,12 @@
         }
       }
     }
+
     @media #{$info-phone}{
       padding: 0 15px;
     }
   }
+
   @media #{$info-phone} {
     padding: 40px 0;
     height: auto;

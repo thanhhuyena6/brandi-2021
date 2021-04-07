@@ -5306,6 +5306,7 @@ readers do not read off random characters that represent icons */
 
 html, body {
   font-size: 16px;
+  scroll-behavior: smooth;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased; }
   @media only screen and (max-width: 1160px) {
@@ -5320,7 +5321,7 @@ html, body {
 
 a {
   text-decoration: none; }
-  a:hover {
+  a:hover, a:focus {
     text-decoration: none; }
 
 ul, ol, p {
@@ -5379,9 +5380,9 @@ img {
     border: 1px solid #333b3f;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.3s ease;
     overflow: hidden;
-    margin: 0 7px; }
+    margin: 0 7px;
+    transition: all .3s ease; }
   .slick-dots button {
     font-size: 0;
     display: none; }
@@ -5393,113 +5394,316 @@ img {
 .modal-open, .modal {
   padding-right: 0 !important; }
 
-.banner {
+.header {
   width: 100%;
-  position: relative; }
-  .banner .header {
-    width: 100%;
-    max-height: 70px;
-    position: fixed;
+  max-height: 70px;
+  position: fixed;
+  z-index: 3;
+  transition: all 0.3s ease-in-out; }
+  .header .mycontainer {
+    position: relative;
     z-index: 3;
-    transition: all 0.3s ease-in-out; }
-    .banner .header .mycontainer {
-      position: relative;
-      z-index: 3;
-      padding: 29px 15px 18px 15px;
+    padding: 29px 15px 18px 15px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .header .mycontainer .logo {
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
       justify-content: space-between;
       align-items: center; }
-      .banner .header .mycontainer .logo {
+      .header .mycontainer .logo .logo__img {
+        max-width: 100%;
+        display: block;
+        margin-right: 25px; }
+      .header .mycontainer .logo p {
+        font-size: 13px;
+        border-left: 2px solid #32b0ee;
+        padding-left: 20px;
+        color: #fff;
+        opacity: 0.3; }
+    @media only screen and (max-width: 768px) {
+      .header .mycontainer .nav {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 69px;
+        display: flex;
+        flex-direction: column;
+        width: 0;
+        z-index: 2;
+        transition: all .5s ease; } }
+    .header .mycontainer .nav a {
+      padding: 0 15px;
+      font-size: 13px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      transition: all .3s ease; }
+      .header .mycontainer .nav a:before {
+        content: "";
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 43px;
+        height: 1px;
+        background: #32b0ee;
+        display: none; }
+      .header .mycontainer .nav a:hover:before {
+        display: block; }
+      .header .mycontainer .nav a:last-child {
+        padding-right: 0; }
+      @media only screen and (max-width: 768px) {
+        .header .mycontainer .nav a:hover:before {
+          display: none; } }
+    .header .mycontainer .nav:before, .header .mycontainer .nav:after {
+      display: none; }
+    .header .mycontainer .burger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease; }
+    .header .mycontainer .burger {
+      display: none; }
+      @media only screen and (max-width: 768px) {
+        .header .mycontainer .burger {
+          display: block;
+          cursor: pointer; } }
+    @media only screen and (max-width: 768px) {
+      .header .mycontainer {
+        padding: 20px 15px; }
+        .header .mycontainer .nav-active {
+          background: #0eb493;
+          width: 50%;
+          max-width: 350px;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+          .header .mycontainer .nav-active:before {
+            display: none; }
+          .header .mycontainer .nav-active a, .header .mycontainer .nav-active a:last-child {
+            padding: 15px; } }
+    @media only screen and (max-width: 480px) {
+      .header .mycontainer .nav-active {
+        max-width: unset; } }
+  .header:before {
+    content: "";
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.2;
+    background: rgba(207, 208, 215, 0.2); }
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px); }
+
+.toggle .line2 {
+  opacity: 0; }
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px); }
+
+.footer {
+  width: 100%;
+  height: 405px;
+  background: rgba(30, 167, 141, 0.9); }
+  @media only screen and (max-width: 480px) {
+    .footer {
+      height: auto; } }
+  .footer .mycontainer .footer__list {
+    color: #fff;
+    padding-top: 110px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap; }
+    @media only screen and (max-width: 768px) {
+      .footer .mycontainer .footer__list {
+        padding-top: 20px; } }
+    .footer .mycontainer .footer__list .footer__item {
+      width: 25%;
+      padding: 0 15px; }
+      @media only screen and (max-width: 768px) {
+        .footer .mycontainer .footer__list .footer__item {
+          width: 50%;
+          margin-bottom: 30px; } }
+      @media only screen and (max-width: 480px) {
+        .footer .mycontainer .footer__list .footer__item {
+          margin-top: 0;
+          margin-bottom: 40px;
+          width: 100%; } }
+      .footer .mycontainer .footer__list .footer__item:first-child {
+        padding-left: 0; }
+        @media only screen and (max-width: 480px) {
+          .footer .mycontainer .footer__list .footer__item:first-child {
+            padding-right: 0; } }
+        .footer .mycontainer .footer__list .footer__item:first-child .footer__logo {
+          margin-bottom: 30px; }
+          @media only screen and (max-width: 768px) {
+            .footer .mycontainer .footer__list .footer__item:first-child .footer__logo {
+              margin-bottom: 20px; } }
+        .footer .mycontainer .footer__list .footer__item:first-child p {
+          font-size: 13px;
+          line-height: 1.8; }
+      @media only screen and (max-width: 768px) {
+        .footer .mycontainer .footer__list .footer__item:nth-child(2) {
+          padding-right: 0; } }
+      @media only screen and (max-width: 480px) {
+        .footer .mycontainer .footer__list .footer__item:nth-child(2) {
+          padding-left: 0; } }
+      .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
+        font-size: 14px;
+        font-weight: 700;
+        opacity: 0.8;
+        margin-bottom: 40px; }
+        @media only screen and (max-width: 768px) {
+          .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
+            margin-bottom: 30px; } }
+        @media only screen and (max-width: 480px) {
+          .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
+            margin-bottom: 20px; } }
+      .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub {
+        position: relative;
+        margin-bottom: 20px; }
+        .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub input {
+          width: 100%;
+          height: 46px;
+          border: 2px solid #fff;
+          border-radius: 3px;
+          background: transparent; }
+          .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub input:focus {
+            outline: none; }
+        .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub button {
+          background: transparent;
+          border: none;
+          padding: 0;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%); }
+          .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub button img {
+            display: block; }
+      .footer .mycontainer .footer__list .footer__item:nth-child(2) p {
+        font-size: 13px;
+        line-height: 1.8; }
+      @media only screen and (max-width: 768px) {
+        .footer .mycontainer .footer__list .footer__item:nth-child(3) {
+          padding-left: 0;
+          margin-bottom: 0; } }
+      @media only screen and (max-width: 480px) {
+        .footer .mycontainer .footer__list .footer__item:nth-child(3) {
+          padding-right: 0;
+          margin-bottom: 40px; } }
+      .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
+        font-size: 14px;
+        font-weight: 700;
+        opacity: 0.8;
+        margin-bottom: 33px; }
+        @media only screen and (max-width: 768px) {
+          .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
+            margin-bottom: 30px; } }
+        @media only screen and (max-width: 480px) {
+          .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
+            margin-bottom: 20px; } }
+      .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content {
         display: -moz-box;
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        justify-content: space-between;
-        align-items: center; }
-        .banner .header .mycontainer .logo .logo__img {
-          max-width: 100%;
-          display: block;
-          margin-right: 25px; }
-        .banner .header .mycontainer .logo p {
+        flex-wrap: wrap; }
+        .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul {
+          list-style: none;
+          width: 50%; }
+          .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul:last-child {
+            padding-left: 40px; }
+            @media only screen and (max-width: 768px) {
+              .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul:last-child {
+                padding-left: 10px; } }
+            @media only screen and (max-width: 480px) {
+              .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul:last-child {
+                padding-left: 0; } }
+          .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li {
+            margin-bottom: 12px; }
+            .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a {
+              font-size: 13px;
+              color: #fff;
+              transition: all .3s ease; }
+              .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a:hover, .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a:focus {
+                color: #062033;
+                text-decoration: none; }
+            .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li:last-child {
+              margin-bottom: 0; }
+      .footer .mycontainer .footer__list .footer__item:last-child {
+        padding-right: 0; }
+        @media only screen and (max-width: 768px) {
+          .footer .mycontainer .footer__list .footer__item:last-child {
+            margin-bottom: 0; } }
+        @media only screen and (max-width: 480px) {
+          .footer .mycontainer .footer__list .footer__item:last-child {
+            padding-left: 0; } }
+        .footer .mycontainer .footer__list .footer__item:last-child p {
+          padding-left: 12px;
           font-size: 13px;
-          border-left: 2px solid #32b0ee;
-          padding-left: 20px;
-          color: #fff;
-          opacity: 0.3; }
-      @media only screen and (max-width: 768px) {
-        .banner .header .mycontainer .nav {
-          position: absolute;
-          left: 0;
-          height: 92vh;
-          top: 70px;
-          display: flex;
-          flex-direction: column;
-          width: 50%;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease-in;
-          z-index: 2; } }
-      .banner .header .mycontainer .nav a {
-        padding: 0 15px;
-        font-size: 13px;
-        color: #fff;
-        position: relative;
-        z-index: 2;
-        transition: all .3s ease; }
-        .banner .header .mycontainer .nav a:before {
-          content: "";
-          position: absolute;
-          top: -32px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 43px;
-          height: 1px;
-          background: #32b0ee;
-          display: none; }
-        .banner .header .mycontainer .nav a:hover:before {
-          display: block; }
-        .banner .header .mycontainer .nav a:last-child {
-          padding-right: 0; }
-        @media only screen and (max-width: 768px) {
-          .banner .header .mycontainer .nav a:hover:before {
-            display: none; } }
-      .banner .header .mycontainer .burger div {
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        margin: 5px 0;
-        transition: all 0.3s ease; }
-      .banner .header .mycontainer .burger {
-        display: none; }
-        @media only screen and (max-width: 768px) {
-          .banner .header .mycontainer .burger {
-            display: block;
-            cursor: pointer; } }
-      @media only screen and (max-width: 768px) {
-        .banner .header .mycontainer {
-          padding: 20px 15px; }
-          .banner .header .mycontainer .nav-active {
-            transform: translateX(0%);
-            background: #0eb493;
-            width: 100%;
-            max-width: 350px; }
-            .banner .header .mycontainer .nav-active a {
-              padding: 15px; } }
-      @media only screen and (max-width: 480px) {
-        .banner .header .mycontainer .nav-active {
-          max-width: unset; } }
-    .banner .header:before {
-      content: "";
-      width: 100%;
-      height: 70px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      opacity: 0.2;
-      background: rgba(207, 208, 215, 0.2); }
+          line-height: 1.8; }
+          @media only screen and (max-width: 1024px) {
+            .footer .mycontainer .footer__list .footer__item:last-child p {
+              padding-left: 25px; } }
+          @media only screen and (max-width: 768px) {
+            .footer .mycontainer .footer__list .footer__item:last-child p {
+              padding-left: 0; } }
+          .footer .mycontainer .footer__list .footer__item:last-child p img {
+            display: inline-block;
+            padding-left: 5px;
+            padding-right: 15px; }
+          .footer .mycontainer .footer__list .footer__item:last-child p:last-child, .footer .mycontainer .footer__list .footer__item:last-child p span {
+            color: #062033; }
+          .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
+            margin: 47px 0 50px 0;
+            position: relative; }
+            @media only screen and (max-width: 1024px) {
+              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
+                margin-bottom: 30px; } }
+            @media only screen and (max-width: 768px) {
+              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
+                margin-bottom: 20px;
+                margin-top: 40px; } }
+            @media only screen and (max-width: 480px) {
+              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
+                margin-top: 0; } }
+            .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
+              content: "";
+              position: absolute;
+              bottom: 4px;
+              left: 0;
+              width: 1px;
+              height: 39px;
+              background: rgba(23, 126, 141, 0.3); }
+              @media only screen and (max-width: 1024px) {
+                .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
+                  bottom: 15px; } }
+              @media only screen and (max-width: 768px) {
+                .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
+                  left: -12px;
+                  bottom: 4px; } }
+
+.banner {
+  width: 100%;
+  position: relative; }
   .banner__wrapper {
     position: relative; }
     .banner__wrapper .banner__slider__item {
@@ -5581,193 +5785,19 @@ img {
           list-style: none;
           color: #4f555e; }
           .banner__wrapper .slider__content .content__icon ul li i {
-            padding: 0 8px; }
+            padding: 0 8px;
+            transition: all .3s ease; }
             .banner__wrapper .slider__content .content__icon ul li i:before {
               font-size: 20px; }
             .banner__wrapper .slider__content .content__icon ul li i:hover {
               cursor: pointer;
               color: #fff; }
-        .banner__wrapper .slider__content .content__icon ul .active {
-          color: #fff; }
     @media only screen and (max-width: 768px) {
       .banner__wrapper .banner__slider__item {
         height: 500px; } }
     @media only screen and (max-width: 480px) {
       .banner__wrapper .banner__slider__item {
         height: 400px; } }
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px); }
-
-.toggle .line2 {
-  opacity: 0; }
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px); }
-
-.footer {
-  width: 100%;
-  height: 405px;
-  background: rgba(30, 167, 141, 0.9); }
-  @media only screen and (max-width: 480px) {
-    .footer {
-      height: auto; } }
-  .footer .mycontainer .footer__list {
-    color: #fff;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap; }
-    .footer .mycontainer .footer__list .footer__item {
-      width: 25%;
-      padding: 0 15px;
-      margin-top: 110px; }
-      @media only screen and (max-width: 768px) {
-        .footer .mycontainer .footer__list .footer__item {
-          width: 50%;
-          margin-top: 20px; } }
-      @media only screen and (max-width: 480px) {
-        .footer .mycontainer .footer__list .footer__item {
-          margin-top: 0;
-          margin-bottom: 40px;
-          width: 100%; } }
-      .footer .mycontainer .footer__list .footer__item:first-child {
-        padding-left: 0; }
-        @media only screen and (max-width: 480px) {
-          .footer .mycontainer .footer__list .footer__item:first-child {
-            padding-right: 0;
-            margin-top: 20px; } }
-        .footer .mycontainer .footer__list .footer__item:first-child .footer__logo {
-          margin-bottom: 30px; }
-          @media only screen and (max-width: 768px) {
-            .footer .mycontainer .footer__list .footer__item:first-child .footer__logo {
-              margin-bottom: 20px; } }
-        .footer .mycontainer .footer__list .footer__item:first-child p {
-          font-size: 13px;
-          line-height: 1.8; }
-      @media only screen and (max-width: 768px) {
-        .footer .mycontainer .footer__list .footer__item:nth-child(2) {
-          padding-right: 0; } }
-      @media only screen and (max-width: 480px) {
-        .footer .mycontainer .footer__list .footer__item:nth-child(2) {
-          padding-left: 0; } }
-      .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
-        font-size: 14px;
-        font-weight: 700;
-        opacity: 0.8;
-        margin-bottom: 40px; }
-        @media only screen and (max-width: 768px) {
-          .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
-            margin-bottom: 30px; } }
-        @media only screen and (max-width: 480px) {
-          .footer .mycontainer .footer__list .footer__item:nth-child(2) h3 {
-            margin-bottom: 20px; } }
-      .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub {
-        width: 100%;
-        height: 46px;
-        border: 2px solid #fff;
-        border-radius: 3px;
-        position: relative;
-        margin-bottom: 20px; }
-        .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub img {
-          display: block;
-          position: absolute;
-          top: 50%;
-          right: 20px;
-          transform: translateY(-50%); }
-      .footer .mycontainer .footer__list .footer__item:nth-child(2) p {
-        font-size: 13px;
-        line-height: 1.8; }
-      @media only screen and (max-width: 768px) {
-        .footer .mycontainer .footer__list .footer__item:nth-child(3) {
-          padding-left: 0; } }
-      @media only screen and (max-width: 480px) {
-        .footer .mycontainer .footer__list .footer__item:nth-child(3) {
-          padding-right: 0; } }
-      .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
-        font-size: 14px;
-        font-weight: 700;
-        opacity: 0.8;
-        margin-bottom: 33px; }
-        @media only screen and (max-width: 768px) {
-          .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
-            margin-bottom: 30px; } }
-        @media only screen and (max-width: 480px) {
-          .footer .mycontainer .footer__list .footer__item:nth-child(3) h3 {
-            margin-bottom: 20px; } }
-      .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content {
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap; }
-        .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul {
-          list-style: none;
-          width: 50%; }
-          .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul:last-child {
-            padding-left: 40px; }
-            @media only screen and (max-width: 768px) {
-              .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul:last-child {
-                padding-left: 0; } }
-          .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li {
-            margin-bottom: 12px; }
-            .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a {
-              font-size: 13px;
-              color: #fff; }
-              .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a:hover, .footer .mycontainer .footer__list .footer__item:nth-child(3) .footer__content ul li a:focus {
-                color: #062033;
-                text-decoration: none; }
-      .footer .mycontainer .footer__list .footer__item:last-child {
-        padding-right: 0; }
-        @media only screen and (max-width: 480px) {
-          .footer .mycontainer .footer__list .footer__item:last-child {
-            margin-bottom: 0;
-            padding-left: 0; } }
-        .footer .mycontainer .footer__list .footer__item:last-child p {
-          padding-left: 12px;
-          font-size: 13px;
-          line-height: 1.8; }
-          @media only screen and (max-width: 1024px) {
-            .footer .mycontainer .footer__list .footer__item:last-child p {
-              padding-left: 25px; } }
-          @media only screen and (max-width: 768px) {
-            .footer .mycontainer .footer__list .footer__item:last-child p {
-              padding-left: 0; } }
-          .footer .mycontainer .footer__list .footer__item:last-child p img {
-            display: inline-block;
-            padding-left: 5px;
-            padding-right: 15px; }
-          .footer .mycontainer .footer__list .footer__item:last-child p:last-child, .footer .mycontainer .footer__list .footer__item:last-child p span {
-            color: #062033; }
-          .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
-            margin: 47px 0 50px 0;
-            position: relative; }
-            @media only screen and (max-width: 1024px) {
-              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
-                margin-bottom: 30px; } }
-            @media only screen and (max-width: 768px) {
-              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
-                margin-bottom: 30px; } }
-            @media only screen and (max-width: 480px) {
-              .footer .mycontainer .footer__list .footer__item:last-child p:first-child {
-                margin-top: 0;
-                margin-bottom: 20px; } }
-            .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
-              content: "";
-              position: absolute;
-              bottom: 4px;
-              left: 0;
-              width: 1px;
-              height: 39px;
-              background: rgba(23, 126, 141, 0.3); }
-              @media only screen and (max-width: 1024px) {
-                .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
-                  bottom: 15px; } }
-              @media only screen and (max-width: 768px) {
-                .footer .mycontainer .footer__list .footer__item:last-child p:first-child:before {
-                  left: -12px;
-                  bottom: 4px; } }
 
 .features {
   position: relative;
@@ -5804,17 +5834,20 @@ img {
       .features .mycontainer .features__content {
         padding-bottom: 40px; } }
     .features .mycontainer .features__content .features__item {
-      width: 33.33%;
+      width: calc(100% / 3);
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
       align-items: flex-start;
       padding: 0 30px 0 15px; }
+      .features .mycontainer .features__content .features__item:focus {
+        outline: none; }
       @media only screen and (max-width: 768px) {
         .features .mycontainer .features__content .features__item {
-          width: 100%;
-          padding: 10px 0; } }
+          padding: 10px; }
+          .features .mycontainer .features__content .features__item:first-child {
+            padding-left: 0; } }
       .features .mycontainer .features__content .features__item .features__text {
         margin-left: 15px; }
         .features .mycontainer .features__content .features__item .features__text h3 {
@@ -5966,11 +5999,14 @@ img {
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap; }
+    .works .works__list .show {
+      display: block; }
     .works .works__list .works__image {
       width: 25%;
       position: relative;
       overflow: hidden;
-      cursor: pointer; }
+      cursor: pointer;
+      display: none; }
       @media only screen and (max-width: 768px) {
         .works .works__list .works__image {
           width: 50%; } }
@@ -6356,9 +6392,12 @@ img {
         @media only screen and (max-width: 768px) {
           .discuss .mycontainer .discuss__list .discuss__address h4 {
             margin-bottom: 20px; } }
-      .discuss .mycontainer .discuss__list .discuss__address p {
+      .discuss .mycontainer .discuss__list .discuss__address p, .discuss .mycontainer .discuss__list .discuss__address a {
         font-size: 13px;
-        margin: 5px 0; }
+        margin: 5px 0;
+        color: #6a737b; }
+      .discuss .mycontainer .discuss__list .discuss__address a {
+        display: block; }
     .discuss .mycontainer .discuss__list .discuss__form {
       position: relative; }
       @media only screen and (max-width: 768px) {
@@ -6423,16 +6462,17 @@ img {
               @media only screen and (max-width: 1024px) {
                 .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:first-child input, .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:nth-child(2) input {
                   width: 100%; } }
-          .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child {
-            width: 100%; }
-            .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
-              width: 770px; }
-              @media only screen and (max-width: 1200px) {
-                .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
-                  width: 710px; } }
-              @media only screen and (max-width: 1024px) {
-                .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
-                  width: 100%; } }
+          @media only screen and (max-width: 1024px) {
+            .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child {
+              width: 100%; } }
+          .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
+            width: 770px; }
+            @media only screen and (max-width: 1200px) {
+              .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
+                width: 710px; } }
+            @media only screen and (max-width: 1024px) {
+              .discuss .mycontainer .discuss__list .discuss__form .discuss__form__input .discuss__form__item:last-child input {
+                width: 100%; } }
       .discuss .mycontainer .discuss__list .discuss__form .discuss__button {
         position: absolute;
         bottom: 0;
@@ -6478,12 +6518,12 @@ img {
           margin: 0;
           padding: 0;
           justify-content: unset; } }
-      .discuss .mycontainer .discuss__list .discuss__info i {
+      .discuss .mycontainer .discuss__list .discuss__info a {
         margin-bottom: 20px; }
         @media only screen and (max-width: 768px) {
-          .discuss .mycontainer .discuss__list .discuss__info i {
+          .discuss .mycontainer .discuss__list .discuss__info a {
             padding: 0 15px; }
-            .discuss .mycontainer .discuss__list .discuss__info i:first-child {
+            .discuss .mycontainer .discuss__list .discuss__info a:first-child {
               padding-left: 0; } }
 
 .map {

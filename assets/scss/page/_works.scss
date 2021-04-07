@@ -24,38 +24,12 @@
       right: 0;
       opacity: 1;
     }
-
-    .bg--img-01 {
-      background-image: url("../img/work-1.png");
+    @for $i from 1 through 8 {
+      .bg--img-0#{$i}{
+        background-image: url("../img/work-#{$i}.png");
+      }
     }
 
-    .bg--img-02 {
-      background-image: url("../img/work-2.png");
-    }
-
-    .bg--img-03 {
-      background-image: url("../img/work-3.png");
-    }
-
-    .bg--img-04 {
-      background-image: url("../img/work-4.png");
-    }
-
-    .bg--img-05 {
-      background-image: url("../img/work-5.png");
-    }
-
-    .bg--img-06 {
-      background-image: url("../img/work-6.png");
-    }
-
-    .bg--img-07 {
-      background-image: url("../img/work-7.png");
-    }
-
-    .bg--img-08 {
-      background-image: url("../img/work-8.png");
-    }
   }
 
   .mycontainer {
@@ -149,12 +123,15 @@
   .works__list {
     @include flex;
     flex-wrap: wrap;
-
+    .show{
+      display: block;
+    }
     .works__image {
       width: 25%;
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      display: none;
       @media #{$info-phone}{
         width: 50%;
       }

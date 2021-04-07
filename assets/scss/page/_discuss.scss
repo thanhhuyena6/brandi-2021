@@ -78,9 +78,13 @@
           }
         }
 
-        p {
+        p, a {
           font-size: 13px;
           margin: 5px 0;
+          color: $color-text;
+        }
+        a {
+          display: block;
         }
       }
 
@@ -151,8 +155,9 @@
             }
 
             &:last-child {
-              width: 100%;
-
+              @media #{$info-desktop-md} {
+                width: 100%;
+              }
               input {
                 width: 770px;
                 @media #{$info-desktop-lg}{
@@ -211,7 +216,7 @@
           padding: 0;
           justify-content: unset;
         }
-        i {
+        a {
           margin-bottom: 20px;
           @media #{$info-phone}{
             padding: 0 15px;

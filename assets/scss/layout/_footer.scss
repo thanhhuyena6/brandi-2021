@@ -8,15 +8,18 @@
   .mycontainer{
     .footer__list{
       color: $color-default-lightest;
+      padding-top: 110px;
       @include flex;
       flex-wrap: wrap;
+      @media #{$info-phone} {
+        padding-top: 20px;
+      }
       .footer__item{
         width: 25%;
         padding: 0 15px;
-        margin-top: 110px;
         @media #{$info-phone} {
           width: 50%;
-          margin-top: 20px;
+          margin-bottom: 30px;
         }
         @media #{$info-phone-vertical} {
           margin-top: 0;
@@ -27,7 +30,6 @@
           padding-left: 0;
           @media #{$info-phone-vertical} {
             padding-right: 0;
-            margin-top: 20px;
           }
           .footer__logo{
             margin-bottom: 30px;
@@ -60,19 +62,31 @@
             }
           }
           .footer__sub{
-            width: 100%;
-            height: 46px;
-            border: 2px solid $color-default-lightest;
-            border-radius: 3px;
             position: relative;
             margin-bottom: 20px;
-            img{
-              display: block;
+            input{
+              width: 100%;
+              height: 46px;
+              border: 2px solid $color-default-lightest;
+              border-radius: 3px;
+              background: transparent;
+              &:focus{
+                outline: none;
+              }
+            }
+            button{
+              background: transparent;
+              border: none;
+              padding: 0 ;
               position: absolute;
               top: 50%;
               right: 20px;
               transform: translateY(-50%);
+              img{
+                display: block;
+              }
             }
+
           }
           p{
             font-size: 13px;
@@ -82,9 +96,11 @@
         &:nth-child(3){
           @media #{$info-phone} {
             padding-left: 0;
+            margin-bottom: 0;
           }
           @media #{$info-phone-vertical} {
             padding-right: 0;
+            margin-bottom: 40px;
           }
           h3{
             font-size: 14px;
@@ -107,6 +123,9 @@
               &:last-child{
                 padding-left: 40px;
                 @media #{$info-phone} {
+                  padding-left: 10px;
+                }
+                @media #{$info-phone-vertical} {
                   padding-left: 0;
                 }
               }
@@ -115,10 +134,14 @@
                 a{
                   font-size: 13px;
                   color: $color-default-lightest;
+                  transition: all .3s ease;
                   &:hover, &:focus{
                     color: $color-danger;
                     text-decoration: none;
                   }
+                }
+                &:last-child{
+                  margin-bottom: 0;
                 }
               }
             }
@@ -126,8 +149,10 @@
         }
         &:last-child{
           padding-right: 0;
-          @media #{$info-phone-vertical} {
+          @media #{$info-phone} {
             margin-bottom: 0;
+          }
+          @media #{$info-phone-vertical} {
             padding-left: 0;
           }
           p{
@@ -155,11 +180,11 @@
                 margin-bottom: 30px;
               }
               @media #{$info-phone} {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
+                margin-top: 40px;
               }
               @media #{$info-phone-vertical} {
                 margin-top: 0;
-                margin-bottom: 20px;
               }
               &:before{
                 content: "";

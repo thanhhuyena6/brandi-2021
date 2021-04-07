@@ -1,3 +1,5 @@
+
+// Hamburger menu
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
@@ -5,45 +7,58 @@ const navSlide = () => {
 
     burger.addEventListener('click', () => {
         nav.classList.toggle('nav-active');
-
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease-in-out forwards ${index / 7 + 0.3}s`;
-
-            }
-        })
         burger.classList.toggle('toggle');
     })
 }
-
 navSlide();
 
-var slideIndex = 1;
-showSlides(slideIndex);
 
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+// Category Works
+function filterSelection(c) {
+    let x, i;
+    let dot = document.getElementsByClassName("dot");
+    x = document.getElementsByClassName("works__image");
+    if (c === "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+    for (let i = 0; i < dot.length; i++) {
+        dot[i].addEventListener("click", function() {
+            let current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
 }
 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("works__list");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "flex";
-    dots[slideIndex-1].className += " active";
 }
 
+function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+
+filterSelection("all")
+
+
+
+// Modal image
 function wrapBox(indexImg) {
     var wrap = document.getElementsByClassName('close')[0];
     var bgImg =     document.getElementsByClassName('bg--img')[0];
@@ -164,7 +179,6 @@ $(document).ready(function(){
             }
         ]
     });
-
 
 })
 

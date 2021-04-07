@@ -1,278 +1,141 @@
-.banner {
+.header {
   width: 100%;
-  position: relative;
+  max-height: 70px;
+  position: fixed;
+  z-index: 3;
+  transition: all 0.3s ease-in-out;
 
-  .header {
-    width: 100%;
-    max-height: 70px;
-    position: fixed;
+  .mycontainer {
+    position: relative;
     z-index: 3;
-    transition: all 0.3s ease-in-out;
+    padding: 29px 15px 18px 15px;
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .mycontainer {
-      position: relative;
-      z-index: 3;
-      padding: 29px 15px 18px 15px;
+    .logo {
       @include flex;
       justify-content: space-between;
       align-items: center;
 
-      .logo {
-        @include flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .logo__img {
-          max-width: 100%;
-          display: block;
-          margin-right: 25px;
-        }
-
-        p {
-          font-size: 13px;
-          border-left: 2px solid $color-border;
-          padding-left: 20px;
-          color: $color-default-lightest;
-          opacity: 0.3;
-        }
-      }
-
-      .nav {
-        @media #{$info-phone}{
-          position: absolute;
-          left: 0;
-          height: 92vh;
-          top: 70px;
-          display: flex;
-          flex-direction: column;
-          width: 50%;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease-in;
-          z-index: 2;
-        }
-
-        a {
-          padding: 0 15px;
-          font-size: 13px;
-          color: $color-default-lightest;
-          position: relative;
-          z-index: 2;
-          transition: all .3s ease;
-
-          &:before {
-            content: "";
-            position: absolute;
-            top: -32px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 43px;
-            height: 1px;
-            background: $color-border;
-            display: none;
-          }
-
-          &:hover:before {
-            display: block;
-          }
-
-          &:last-child {
-            padding-right: 0;
-          }
-
-          @media #{$info-phone}{
-            &:hover:before {
-              display: none;
-            }
-          }
-        }
-      }
-
-      .burger div {
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-      }
-
-      .burger {
-        display: none;
-        @media #{$info-phone}{
-          display: block;
-          cursor: pointer;
-        }
-      }
-
-      @media #{$info-phone} {
-        padding: 20px 15px;
-        .nav-active {
-          transform: translateX(0%);
-          background: $color-success;
-          width: 100%;
-          max-width: 350px;
-
-          & a {
-            padding: 15px;
-          }
-        }
-      }
-      @media #{$info-phone-vertical} {
-        .nav-active {
-          max-width: unset;
-        }
-      }
-    }
-
-    &:before {
-      content: "";
-      width: 100%;
-      height: 70px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      opacity: 0.2;
-      background: $color-background;
-    }
-  }
-
-  &__wrapper {
-    position: relative;
-
-    .banner__slider {
-      &__item {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        height: 800px;
-      }
-
-      .slick-dots {
-        flex-direction: column;
-        position: absolute;
-        top: 50%;
-        right: 46px;
-        transform: translateY(-50%);
-
-        li {
-          margin: 7px 0;
-
-          &.slick-active, &:hover {
-            background-color: $color-default-lightest;
-          }
-        }
-      }
-    }
-
-    .slider__content {
-      @include flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 56%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: $color-default-lightest;
-      line-height: 1.2;
-      width: 100%;
-
-      h2 {
-        @include font-size(62px);
-        font-weight: 300;
-        @media #{$info-phone-vertical} {
-          font-size: 28px;
-          margin-bottom: 10px;
-        }
-      }
-
-      h3 {
-        @include font-size(48px);
-        font-weight: 300;
-        margin-bottom: 20px;
-
-        span {
-          color: $green;
-        }
-
-        @media #{$info-phone-vertical}{
-          font-size: 18px;
-        }
+      .logo__img {
+        max-width: 100%;
+        display: block;
+        margin-right: 25px;
       }
 
       p {
-        position: relative;
-        @include font-size(18px);
-        margin-bottom: 110px;
+        font-size: 13px;
+        border-left: 2px solid $color-border;
+        padding-left: 20px;
+        color: $color-default-lightest;
+        opacity: 0.3;
+      }
+    }
 
-        &:before, &:after {
-          content: "";
-          background: $green;
-          width: 28px;
-          height: 1px;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        &:before {
-          left: -58px;
-        }
-
-        &:after {
-          right: -60px;
-        }
-
-        @media #{$info-phone} {
-          margin-bottom: 20px;
-        }
+    .nav {
+      @media #{$info-phone}{
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 69px;
+        display: flex;
+        flex-direction: column;
+        width: 0;
+        z-index: 2;
+        transition: all .5s ease;
       }
 
-      .content__icon {
-        ul {
-          @include flex;
-          justify-content: space-between;
-          align-items: center;
+      a {
+        padding: 0 15px;
+        font-size: 13px;
+        text-align: center;
+        color: $color-default-lightest;
+        position: relative;
+        z-index: 2;
+        transition: all .3s ease;
 
-          li {
-            list-style: none;
-            color: $color-icon;
+        &:before {
+          content: "";
+          position: absolute;
+          top: -32px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 43px;
+          height: 1px;
+          background: $color-border;
+          display: none;
+        }
 
-            i {
-              padding: 0 8px;
+        &:hover:before {
+          display: block;
+        }
 
-              &:before {
-                font-size: 20px;
-              }
+        &:last-child {
+          padding-right: 0;
+        }
 
-              &:hover {
-                cursor: pointer;
-                color: $color-default-lightest;
-              }
-            }
-          }
-
-          .active {
-            color: $color-default-lightest;
+        @media #{$info-phone}{
+          &:hover:before {
+            display: none;
           }
         }
+      }
+      &:before, &:after{
+        display: none;
+      }
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .burger {
+      display: none;
+      @media #{$info-phone}{
+        display: block;
+        cursor: pointer;
       }
     }
 
     @media #{$info-phone} {
-      .banner__slider {
-        &__item {
-          height: 500px;
+      padding: 20px 15px;
+      .nav-active {
+        background: $color-success;
+        width: 50%;
+        max-width: 350px;
+        @include flex;
+        flex-direction: column;
+        align-items: center;
+        &:before {
+          display: none;
+        }
+        & a, & a:last-child {
+          padding: 15px;
         }
       }
     }
-    @media #{$info-phone-vertical}{
-      .banner__slider {
-        &__item {
-          height: 400px;
-        }
+    @media #{$info-phone-vertical} {
+      .nav-active {
+        max-width: unset;
       }
     }
+  }
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.2;
+    background: $color-background;
   }
 }
 
