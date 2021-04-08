@@ -12,10 +12,46 @@ const navSlide = () => {
 }
 navSlide();
 
+// Modal image
+function wrapBox(indexImg) {
+    let wrap = document.getElementsByClassName('close')[0];
+    let bgImg =     document.getElementsByClassName('bg--img')[0];
+    switch (indexImg) {
+        case 1 :
+            bgImg.className+= ' bg--img-01';
+            break;
+        case 2:
+            bgImg.className+= ' bg--img-02';
+            break;
+        case 3:
+            bgImg.className+= ' bg--img-03';
+            break;
+        case 4:
+            bgImg.className+= ' bg--img-04';
+            break;
+        case 5:
+            bgImg.className+= ' bg--img-05';
+            break;
+        case 6:
+            bgImg.className+= ' bg--img-06';
+            break;
+        case 7:
+            bgImg.className+= ' bg--img-07';
+            break;
+        case 8:
+            bgImg.className+= ' bg--img-08';
+            break;
+    }
+    wrap.addEventListener('click',function (){
+        bgImg.classList.remove(`bg--img-0${indexImg}`);
+    })
+}
+
 // AOS scroll
 AOS.init({
     duration: 1200,
-    offet: 0,
+    offet: 120,
+    once: true,
 })
 
 
@@ -62,42 +98,6 @@ function w3RemoveClass(element, name) {
 
 filterSelection("all")
 
-
-
-// Modal image
-function wrapBox(indexImg) {
-    var wrap = document.getElementsByClassName('close')[0];
-    var bgImg =     document.getElementsByClassName('bg--img')[0];
-    switch (indexImg) {
-        case 1 :
-            bgImg.className+= ' bg--img-01';
-            break;
-        case 2:
-            bgImg.className+= ' bg--img-02';
-            break;
-        case 3:
-            bgImg.className+= ' bg--img-03';
-            break;
-        case 4:
-            bgImg.className+= ' bg--img-04';
-            break;
-        case 5:
-            bgImg.className+= ' bg--img-05';
-            break;
-        case 6:
-            bgImg.className+= ' bg--img-06';
-            break;
-        case 7:
-            bgImg.className+= ' bg--img-07';
-            break;
-        case 8:
-            bgImg.className+= ' bg--img-08';
-            break;
-    }
-    wrap.addEventListener('click',function (){
-        bgImg.classList.remove(`bg--img-0${indexImg}`);
-    })
-}
 
 
 $(document).ready(function(){
