@@ -88,10 +88,7 @@
         li {
           margin: 0 5px;
           @media #{$info-phone}{
-            margin: 0;
-          }
-          @media #{$info-phone-vertical}{
-            margin: 0;
+            margin: 0 3px;
           }
           a {
             cursor: pointer;
@@ -111,7 +108,7 @@
             }
             @media #{$info-phone-vertical}{
               padding: 5px 10px;
-              font-size: 13px;
+              font-size: 12px;
             }
           }
         }

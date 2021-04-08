@@ -189,6 +189,14 @@
             &:hover {
               color: $color-success;
             }
+            button {
+              border: none;
+              background: transparent;
+              padding: 0;
+              &:focus {
+                outline: none;
+              }
+            }
           }
 
           &:focus {
@@ -198,7 +206,7 @@
       }
       .discuss__info {
         margin-right: 0;
-        padding: 20px 22px 0;
+        padding-top: 20px;
         @include flex;
         flex-direction: column;
         justify-content: center;
@@ -218,6 +226,12 @@
         }
         a {
           margin-bottom: 20px;
+          padding: 0 22px;
+          border-radius: 6px;
+          transition: all .3s ease;
+          &:hover {
+            background: $color-background-content;
+          }
           @media #{$info-phone}{
             padding: 0 15px;
             &:first-child {

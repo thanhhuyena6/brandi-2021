@@ -5585,7 +5585,8 @@ img {
           height: 46px;
           border: 2px solid #fff;
           border-radius: 3px;
-          background: transparent; }
+          background: transparent;
+          padding-left: 20px; }
           .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub input:focus {
             outline: none; }
         .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub button {
@@ -5595,9 +5596,12 @@ img {
           position: absolute;
           top: 50%;
           right: 20px;
-          transform: translateY(-50%); }
+          transform: translateY(-50%);
+          transition: all .3s ease; }
           .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub button img {
             display: block; }
+          .footer .mycontainer .footer__list .footer__item:nth-child(2) .footer__sub button:hover {
+            transform: translate(10px, -50%); }
       .footer .mycontainer .footer__list .footer__item:nth-child(2) p {
         font-size: 13px;
         line-height: 1.8; }
@@ -5970,10 +5974,7 @@ img {
       margin: 0 5px; }
       @media only screen and (max-width: 768px) {
         .works .mycontainer .works__items ul li {
-          margin: 0; } }
-      @media only screen and (max-width: 480px) {
-        .works .mycontainer .works__items ul li {
-          margin: 0; } }
+          margin: 0 3px; } }
       .works .mycontainer .works__items ul li a {
         cursor: pointer;
         display: inline-block;
@@ -5992,7 +5993,7 @@ img {
         @media only screen and (max-width: 480px) {
           .works .mycontainer .works__items ul li a {
             padding: 5px 10px;
-            font-size: 13px; } }
+            font-size: 12px; } }
   .works .works__list {
     display: -moz-box;
     display: -ms-flexbox;
@@ -6493,11 +6494,17 @@ img {
           transition: all .3s ease; }
           .discuss .mycontainer .discuss__list .discuss__form .discuss__button p:hover {
             color: #0eb493; }
+          .discuss .mycontainer .discuss__list .discuss__form .discuss__button p button {
+            border: none;
+            background: transparent;
+            padding: 0; }
+            .discuss .mycontainer .discuss__list .discuss__form .discuss__button p button:focus {
+              outline: none; }
         .discuss .mycontainer .discuss__list .discuss__form .discuss__button:focus {
           outline: none; }
     .discuss .mycontainer .discuss__list .discuss__info {
       margin-right: 0;
-      padding: 20px 22px 0;
+      padding-top: 20px;
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
@@ -6519,7 +6526,12 @@ img {
           padding: 0;
           justify-content: unset; } }
       .discuss .mycontainer .discuss__list .discuss__info a {
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        padding: 0 22px;
+        border-radius: 6px;
+        transition: all .3s ease; }
+        .discuss .mycontainer .discuss__list .discuss__info a:hover {
+          background: rgba(26, 183, 152, 0.95); }
         @media only screen and (max-width: 768px) {
           .discuss .mycontainer .discuss__list .discuss__info a {
             padding: 0 15px; }

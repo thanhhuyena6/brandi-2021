@@ -12,6 +12,12 @@ const navSlide = () => {
 }
 navSlide();
 
+// AOS scroll
+AOS.init({
+    duration: 1200,
+    offet: 0,
+})
+
 
 
 // Category Works
