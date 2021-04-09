@@ -1,0 +1,96 @@
+a {
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+ul, ol, p {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.mycontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  &:before, &:after{
+    display: none;
+  }
+}
+
+.line {
+  position: relative;
+  z-index: 2;
+  &:before, &:after{
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: $color-line;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:before{
+    right: 52%;
+  }
+  &:after {
+    left: 52%;
+  }
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  .slick-active, .slick-active button{
+    background: $color-danger;
+  }
+  margin: 0;
+  list-style-type: none;
+
+  li {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    border: 1px solid #333b3f;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 7px;
+    transition: all .3s ease;
+  }
+
+  button {
+    font-size: 0;
+    display: none;
+  }
+
+
+}
+
+.sticky {
+  background: $color-danger;
+  opacity: 0.8;
+}
+
+.modal-open, .modal {
+  padding-right: 0 !important;
+}

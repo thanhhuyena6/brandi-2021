@@ -1,0 +1,72 @@
+//
+// Colors
+//
+
+// Default
+$color-default: #f2f2f2;
+$color-default-lightest: #fff;
+$color-default-lighter: #c2c2c2;
+$color-default-darker: #979ca1;
+$color-default-darkest: #000;
+$color-default-dark: #062033;
+
+// Primary colors
+$color-primary: #EE295F;
+
+// Success colors
+$color-success: #0eb493;
+
+// Warning
+$color-warning: #ffc700;
+
+// Danger
+$color-danger: #062033;
+
+//colors
+$whiteish: #f2f2f2;
+$pink: #E96F92;
+$purple: #75517D;
+$green: #0feb9e;
+$color-line: #e6e8ea;
+$color-text: #6a737b;
+$color-border: #32b0ee;
+$color-footer: rgba(30,167,141,0.9);
+$color-border-bottom: #cccccc;
+$color-border-left: rgba(23,126,141,0.3);
+$color-border-big: rgba(151,143,147,0.4);
+$color-icon: #4f555e;
+$color-features: #f4f7f9;
+$color-placeholder: #5b646e;
+$color-background: rgba(207,208,215,0.2);
+$color-background-hover: #26bb9e;
+$color-background-content: rgba(26, 183, 152, 0.95);
+$color-background-icon: rgba(12, 123, 101, 0.3);
+$color-background-product: rgba(24,43,58,0.8);
+
+//options
+$duration: 0.8s;
+$ease-in-out: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+$ease-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$ease-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$size: 20px;
+$hsize: $size/2;
+
+//
+// Fonts size
+//
+
+//
+// Padding & margin
+//
+//$info-phone-horizontal: "only screen and (max-width : 767px)";
+//$info-phone: "only screen and (max-width : 640px)";
+
+$info-desktop-lg: "only screen and (max-width : 1200px)";
+$info-tablet-horizontal: "only screen and (max-width : 1160px)";
+$info-desktop-md: "only screen and (max-width : 1024px)";
+$info-tablet-vertical: "only screen and (max-width : 900px)";
+$info-phone: "only screen and (max-width : 768px)";
+$info-phone-vertical: "only screen and (max-width : 480px)";
+$info-phone-4: "only screen and (max-width : 320px)";
+
+$primary-green: #0eb493;

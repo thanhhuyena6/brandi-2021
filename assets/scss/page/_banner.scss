@@ -1,0 +1,147 @@
+.banner {
+  width: 100%;
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+
+    .banner__slider {
+      &__item {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 800px;
+      }
+
+      .slick-dots {
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        right: 46px;
+        transform: translateY(-50%);
+
+        li {
+          margin: 7px 0;
+
+          &.slick-active, &:hover {
+            background-color: $color-default-lightest;
+          }
+        }
+      }
+    }
+
+    .slider__content {
+      @include flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 56%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $color-default-lightest;
+      line-height: 1.2;
+      width: 100%;
+
+      h2 {
+        @include font-size(62px);
+        font-weight: 300;
+        @media #{$info-phone-vertical} {
+          font-size: 28px;
+          margin-bottom: 10px;
+        }
+      }
+
+      h3 {
+        @include font-size(48px);
+        font-weight: 300;
+        margin-bottom: 20px;
+
+        span {
+          color: $green;
+        }
+
+        @media #{$info-phone-vertical}{
+          font-size: 18px;
+        }
+      }
+
+      p {
+        position: relative;
+        @include font-size(18px);
+        margin-bottom: 110px;
+
+        &:before, &:after {
+          content: "";
+          background: $green;
+          width: 28px;
+          height: 1px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:before {
+          left: -58px;
+        }
+
+        &:after {
+          right: -60px;
+        }
+
+        @media #{$info-phone} {
+          margin-bottom: 20px;
+        }
+      }
+
+      .content__icon {
+        ul {
+          @include flex;
+          justify-content: space-between;
+          align-items: center;
+
+          li {
+            list-style: none;
+
+
+            a {
+              display: block;
+              i {
+                color: $color-icon;
+                display: block;
+                padding: 0 8px;
+                transition: all .3s ease;
+
+                &:before {
+                  font-size: 20px;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                  color: $color-default-lightest;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    @media #{$info-phone} {
+      .banner__slider {
+        &__item {
+          height: 500px;
+        }
+      }
+    }
+    @media #{$info-phone-vertical}{
+      .banner__slider {
+        &__item {
+          height: 400px;
+        }
+      }
+    }
+  }
+}
+

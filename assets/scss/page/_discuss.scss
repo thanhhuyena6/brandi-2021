@@ -1,0 +1,246 @@
+.discuss {
+  margin-bottom: 100px;
+  @media #{$info-phone} {
+    margin-bottom: 40px;
+  }
+  .mycontainer {
+    .discuss__content {
+      @include flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        @include font-size(28px);
+        font-weight: 800;
+        text-align: center;
+        color: $color-success;
+        margin-bottom: 15px;
+      }
+
+      .discuss__icon {
+        margin-bottom: 30px;
+        width: 100%;
+
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+
+      p {
+        max-width: 970px;
+        margin: 0 auto 105px;
+        text-align: center;
+        @include font-size(18px);
+        font-weight: 600;
+        @media #{$info-phone} {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    .discuss__list {
+      @include flex;
+      @media #{$info-desktop-md} {
+        justify-content: space-between;
+      }
+      @media #{$info-phone}{
+        flex-wrap: wrap;
+      }
+      .discuss__address, .discuss__form, .discuss__info {
+        margin: 0 15px;
+        @media #{$info-phone}{
+          width: 100%;
+        }
+      }
+
+      .discuss__address {
+        margin-left: 0;
+        max-width: 270px;
+        @media #{$info-desktop-lg} {
+          padding-left: 15px;
+        }
+        @media #{$info-desktop-md}{
+          padding-left: 0;
+        }
+        @media #{$info-phone}{
+          order: 2;
+          max-width: unset;
+          margin-bottom: 20px;
+        }
+        h4 {
+          @include font-size(22px);
+          font-weight: 400;
+          margin-bottom: 35px;
+          @media #{$info-phone}{
+            margin-bottom: 20px;
+          }
+        }
+
+        p, a {
+          font-size: 13px;
+          margin: 5px 0;
+          color: $color-text;
+        }
+        a {
+          display: block;
+        }
+      }
+
+      .discuss__form {
+        position: relative;
+        @media #{$info-phone} {
+          order: 1;
+          margin: 0 0 20px 0;
+          padding-bottom: 20px;
+        }
+        h4 {
+          @include font-size(24px);
+          font-weight: 700;
+          margin-bottom: 30px;
+        }
+
+        .discuss__form__input {
+          @include flex;
+          flex-wrap: wrap;
+          max-width: 770px;
+          @media #{$info-desktop-lg} {
+            max-width: 710px;
+          }
+          @media #{$info-desktop-md}{
+            max-width: unset;
+          }
+          .discuss__form__item {
+            margin-bottom: 20px;
+
+            input {
+              border: none;
+              padding: 15px 0;
+              border-bottom: 1px solid $color-border-bottom;
+              @include placeholder {
+                color: $color-placeholder;
+                opacity: 0.5;
+              }
+
+              &:focus {
+                outline: none;
+              }
+            }
+
+            &:first-child {
+              padding-right: 15px;
+            }
+
+            &:nth-child(2) {
+              padding-left: 15px;
+            }
+
+            &:first-child, &:nth-child(2) {
+              width: 50%;
+              @media #{$info-phone-vertical} {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+              }
+              input {
+                width: 370px;
+                @media #{$info-desktop-lg} {
+                  width: 340px;
+                }
+                @media #{$info-desktop-md} {
+                  width: 100%;
+                }
+              }
+            }
+
+            &:last-child {
+              @media #{$info-desktop-md} {
+                width: 100%;
+              }
+              input {
+                width: 770px;
+                @media #{$info-desktop-lg}{
+                  width: 710px;
+                }
+                @media #{$info-desktop-md} {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+
+        .discuss__button {
+          position: absolute;
+          bottom: 0;
+          right: -5px;
+          @include flex;
+          @media #{$info-phone} {
+            right: 0;
+          }
+          p {
+            @include font-size(16px);
+            font-weight: 400;
+            padding-left: 10px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+              color: $color-success;
+            }
+            button {
+              border: none;
+              background: transparent;
+              padding: 0;
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .discuss__info {
+        margin-right: 0;
+        padding: 20px 22px 0;
+        @include flex;
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media #{$info-desktop-lg} {
+          margin-left: auto;
+        }
+        @media #{$info-desktop-md}{
+          margin-left: 15px;
+        }
+        @media #{$info-phone}{
+          order: 3;
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+          justify-content: unset;
+        }
+        a {
+          margin-bottom: 20px;
+          border-radius: 6px;
+          transition: all .3s ease;
+          &:hover img {
+            filter: saturate(20);
+          }
+          @media #{$info-phone}{
+            padding: 0 15px;
+            &:first-child {
+              padding-left: 0;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
