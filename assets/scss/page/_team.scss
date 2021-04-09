@@ -131,15 +131,18 @@
                 background: $color-background-icon;
                 margin: 0 2px;
 
-                i {
-                  position: absolute;
-                  @include center-inside-element;
-                  //font-size: 20px;
-                  @include font-size(20px);
-                  color: $color-default-lightest;
+                a {
+                  display: block;
+                  i {
+                    position: absolute;
+                    @include center-inside-element;
+                    @include font-size(20px);
+                    color: $color-default-lightest;
+                    transition: all .3s ease;
 
-                  &:hover {
-                    opacity: 0.8;
+                    &:hover {
+                      opacity: 0.8;
+                    }
                   }
                 }
               }

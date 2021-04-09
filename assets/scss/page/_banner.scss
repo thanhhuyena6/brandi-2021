@@ -1,6 +1,7 @@
 .banner {
   width: 100%;
   position: relative;
+
   &__wrapper {
     position: relative;
 
@@ -21,6 +22,7 @@
 
         li {
           margin: 7px 0;
+
           &.slick-active, &:hover {
             background-color: $color-default-lightest;
           }
@@ -100,19 +102,24 @@
 
           li {
             list-style: none;
-            color: $color-icon;
 
-            i {
-              padding: 0 8px;
-              transition: all .3s ease;
 
-              &:before {
-                font-size: 20px;
-              }
+            a {
+              display: block;
+              i {
+                color: $color-icon;
+                display: block;
+                padding: 0 8px;
+                transition: all .3s ease;
 
-              &:hover {
-                cursor: pointer;
-                color: $color-default-lightest;
+                &:before {
+                  font-size: 20px;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                  color: $color-default-lightest;
+                }
               }
             }
           }

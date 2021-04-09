@@ -5786,16 +5786,19 @@ img {
         justify-content: space-between;
         align-items: center; }
         .banner__wrapper .slider__content .content__icon ul li {
-          list-style: none;
-          color: #4f555e; }
-          .banner__wrapper .slider__content .content__icon ul li i {
-            padding: 0 8px;
-            transition: all .3s ease; }
-            .banner__wrapper .slider__content .content__icon ul li i:before {
-              font-size: 20px; }
-            .banner__wrapper .slider__content .content__icon ul li i:hover {
-              cursor: pointer;
-              color: #fff; }
+          list-style: none; }
+          .banner__wrapper .slider__content .content__icon ul li a {
+            display: block; }
+            .banner__wrapper .slider__content .content__icon ul li a i {
+              color: #4f555e;
+              display: block;
+              padding: 0 8px;
+              transition: all .3s ease; }
+              .banner__wrapper .slider__content .content__icon ul li a i:before {
+                font-size: 20px; }
+              .banner__wrapper .slider__content .content__icon ul li a i:hover {
+                cursor: pointer;
+                color: #fff; }
     @media only screen and (max-width: 768px) {
       .banner__wrapper .banner__slider__item {
         height: 500px; } }
@@ -6161,22 +6164,25 @@ img {
               position: relative;
               background: rgba(12, 123, 101, 0.3);
               margin: 0 2px; }
-              .team .mycontainer .team__list .team__image .team__detail .team__icons ul li i {
-                position: absolute;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -khtml-transform: translate(-50%, -50%);
-                -moz-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                -o-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                font-size: 20px;
-                font-size: 1.25rem;
-                color: #fff; }
-                .team .mycontainer .team__list .team__image .team__detail .team__icons ul li i:hover {
-                  opacity: 0.8; }
+              .team .mycontainer .team__list .team__image .team__detail .team__icons ul li a {
+                display: block; }
+                .team .mycontainer .team__list .team__image .team__detail .team__icons ul li a i {
+                  position: absolute;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  -khtml-transform: translate(-50%, -50%);
+                  -moz-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                  -o-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  font-size: 20px;
+                  font-size: 1.25rem;
+                  color: #fff;
+                  transition: all .3s ease; }
+                  .team .mycontainer .team__list .team__image .team__detail .team__icons ul li a i:hover {
+                    opacity: 0.8; }
         .team .mycontainer .team__list .team__image:hover .team__detail, .team .mycontainer .team__list .team__image:focus .team__detail {
           opacity: 1; }
         .team .mycontainer .team__list .team__image .team__name {
@@ -6504,11 +6510,12 @@ img {
           outline: none; }
     .discuss .mycontainer .discuss__list .discuss__info {
       margin-right: 0;
-      padding-top: 20px;
+      padding: 20px 22px 0;
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
+      flex-shrink: 0;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
@@ -6527,11 +6534,10 @@ img {
           justify-content: unset; } }
       .discuss .mycontainer .discuss__list .discuss__info a {
         margin-bottom: 20px;
-        padding: 0 22px;
         border-radius: 6px;
         transition: all .3s ease; }
-        .discuss .mycontainer .discuss__list .discuss__info a:hover {
-          background: rgba(26, 183, 152, 0.95); }
+        .discuss .mycontainer .discuss__list .discuss__info a:hover img {
+          filter: saturate(20); }
         @media only screen and (max-width: 768px) {
           .discuss .mycontainer .discuss__list .discuss__info a {
             padding: 0 15px; }
